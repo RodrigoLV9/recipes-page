@@ -1,0 +1,27 @@
+---
+import Header from "../sections/Header.astro"
+import Footer from "../sections/Footer.astro"
+---
+<div class="layout">
+    <Header></Header>
+    <div class="content">
+        <slot></slot>
+    </div>
+    <Footer></Footer>
+</div>
+
+<style is:global>
+    .content{
+        display: block;
+        width: 100%;
+        min-height: 100vh;
+    }
+    .layout{
+
+    }
+    .logo{
+        width:30px;
+        height: 30px;
+        
+    }
+</style>
