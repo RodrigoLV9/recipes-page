@@ -1,0 +1,32 @@
+---
+import Card from "../components/Card.astro";
+
+const rawData=await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=');
+const data= await rawData.json()
+const dataDef=data.meals
+
+---
+
+<section class="cardContainer">
+    {
+        dataDef.map((item:any)=>{
+            return <Card 
+                mealName={item.strMeal}
+                categoryName={item.strCategory}
+                mealImage={item.strMealThumb}
+            />
+        })
+    }
+    
+</section>
+
+
+<style>
+    .cardContainer{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 30px 0 30px 0;
+    }
+</style>

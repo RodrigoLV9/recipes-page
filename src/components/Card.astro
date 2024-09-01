@@ -1,0 +1,107 @@
+---
+    interface Props{
+        mealName:string,
+        categoryName:string,
+        mealImage:string
+    }
+    const {mealName, categoryName, mealImage}=Astro.props
+---
+
+<a class="card" href="#" target="_blank" rel="noopener noreferrer">
+    <!-- <div class="card__image"></div> -->
+    <img src={mealImage} alt="meal-image" class="card__image">
+    <div class="card__info">
+        <h3 class="title">{mealName}</h3>
+        <div class="category">
+            <img src="../../public/assets/images/category.png" alt="logo-category" class="category__logo logo">
+            <p class="category__p">Categoria: </p>
+            <p class="category__p">{categoryName}</p>
+        </div>
+        <div class="ingredients">
+            <img src="../../public/assets/images/notes.png" alt="logo-ingredients" class="ingredients__logo logo">
+            <p class="ingredients__p">Ingredientes: </p>
+        </div>
+        <div class="containerList">
+            <ul class="list1">
+                <li class="list__items">Oregano</li>
+                <li class="list__items">Oregano</li>
+                <li class="list__items">Oregano</li>
+                <li class="list__items">Oregano</li>
+            </ul>
+            <ul class="list1">
+                <li class="list__items">Oregano</li>
+                <li class="list__items">Oregano</li>
+                <li class="list__items">Oregano</li>
+                <li class="list__items">Oregano</li>
+            </ul>
+        </div>
+        
+    </div>
+    <!-- <img src="../../public/assets/images/star.png" alt="star" class="star-logo logo"> -->
+     <div class="star-logo"></div>
+</a>
+
+<style>
+    /* Card */
+    .card{
+        display: block;
+        text-decoration: none;
+        color:black;
+        box-sizing: content-box;
+        width:550px;
+        height: 250px;
+        display: flex;
+        border: 1px solid black;
+        margin:10px;
+        box-shadow: 1px 1px 2px 1px rgb(158, 158, 158);
+
+    }
+    .card__image{
+        width:250px;
+        height: 250px;
+        background-color: rgb(37, 88, 230);
+        border: 1px solid black;
+
+    }
+    .card__info{
+        width: 300px;
+        padding: 10px;
+        line-height: 1.9em;
+    }
+
+    /* CATEGORIA */
+    .category{
+        display: flex;
+        align-items: center;
+    }
+
+
+    /* INGREDIENTES */
+    .ingredients{
+        display:flex;
+        align-items: center;
+    }
+
+
+    /* CONTAINER-LIST */
+    .containerList{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        line-height: 1.5em;
+        padding-left: 10px;
+    }
+     /* ESTRELLA */
+    .star-logo{
+        width: 25px;
+        height: 25px;
+        margin:5px;
+        background-color: orange;
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+    
+    
+
+</style>
+
