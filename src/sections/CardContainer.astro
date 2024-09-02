@@ -10,10 +10,22 @@ const dataDef=data.meals
 <section class="cardContainer">
     {
         dataDef.map((item:any)=>{
+            const ingredients=[]
+            for (let i=1; i<21; i++){
+                ingredients.push(item[`strIngredient${i}`])
+            }
+            const newIngredients=ingredients.filter((element)=>element!="")
+            if (newIngredients.length > 7) {
+                newIngredients.splice(7);  // Mantiene los primeros 7 elementos
+                newIngredients.push("..."); // Agrega "..." al final
+            }
+            /* console.log(newIngredients) */
             return <Card 
                 mealName={item.strMeal}
                 categoryName={item.strCategory}
+                area={item.strArea}
                 mealImage={item.strMealThumb}
+                ingredients={newIngredients}
             />
         })
     }
