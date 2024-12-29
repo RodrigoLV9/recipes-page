@@ -17,10 +17,10 @@ const dataDef=data.meals
             const newIngredients=ingredients.filter((element)=>element!="")
             if (newIngredients.length > 7) {
                 newIngredients.splice(7);  // Mantiene los primeros 7 elementos
-                newIngredients.push("..."); // Agrega "..." al final
+                newIngredients.push("...");
             }
-            /* console.log(newIngredients) */
             return <Card 
+                id={item.idMeal}
                 mealName={item.strMeal}
                 categoryName={item.strCategory}
                 area={item.strArea}

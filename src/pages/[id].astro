@@ -1,0 +1,16 @@
+---
+export async function getStaticPaths(){
+  const rawRecipes=await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=')
+  const recipes=await rawRecipes.json()
+  return recipes.meals.map(item=>({
+    params:{id:item.idMeal}
+  }))
+}
+const {id}=Astro.params
+const rawRecipes=await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=')
+const recipes=await rawRecipes.json()
+const recipe=recipes.meals.find((e)=>e.idMeal==id)
+
+---
+<h2>Recipe: {recipe.strMeal}</h2>
+<h3>ID recipe: {recipe.idMeal}</h3>

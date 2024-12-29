@@ -1,5 +1,6 @@
 ---
     interface Props{
+        id:string,
         mealName:string,
         categoryName:string,
         mealImage:string;
@@ -7,11 +8,10 @@
         ingredients:string[]
 
     }
-    const {mealName, categoryName, mealImage, area, ingredients}=Astro.props
-
+    const {id, mealName, categoryName, mealImage, area, ingredients}=Astro.props
 ---
 
-<a class="card" href="#" target="_blank" rel="noopener noreferrer">
+<a class="card" href=`./${id}` target="_blank" rel="noopener noreferrer">
     <img src={mealImage} alt="meal-image" class="card__image">
     <div class="card__info">
         <h3 class="title">{mealName}</h3>
@@ -64,14 +64,11 @@
         padding: 10px 0 10px 10px;
         line-height: 2em;
     }
-
     /* CATEGORIA */
     .category, .area{ 
         display: flex;
         align-items: center;
     }
-
-
     /* INGREDIENTES */
     .ingredients{
         display:flex;
@@ -81,7 +78,6 @@
         line-height: 1.5em;
         padding-left: 35px;
     }
-
     /* CONTAINER-LIST */
     .containerList{
         width: 100%;
